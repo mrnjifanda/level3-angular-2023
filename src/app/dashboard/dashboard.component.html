@@ -1,0 +1,13 @@
+<h1>Welcom back {{ auth.name }}</h1>
+
+<h2>Your personal informations</h2>
+<ul>
+    <li>Name: {{ auth.name }}</li>
+    <li>Email: {{ auth.email }}</li>
+    <li>Register date: {{ auth.created_at }}</li>
+</ul>
+
+
+<form>
+    <button type="submit">Logout</button>
+</form>

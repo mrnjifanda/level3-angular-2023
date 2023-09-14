@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <div class="">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" formControlName="email">
+    </div>
+
+    <div class="">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" formControlName="password">
+    </div>
+
+<div class="">
+    <a href="/forget-password">Forget password</a>
+</div>
+
+    <div class="">
+        <div class="" *ngIf="loginError">{{ loginError }}</div>
+        <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </div>
+</form>
+
+<p>
+    You don't have account? <a href="/register">Click here</a>
+</p>

@@ -1,0 +1,53 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <div class="">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" formControlName="name">
+        <div class="" *ngIf="registerForm.controls['name'].errors">
+            {{ registerForm.getError('required') ? 'This field is required' : '' }}
+            {{ registerForm.getError('minLength') ? 'Please enter minimun 4 charactes' : '' }}
+            {{ registerForm.getError('maxLength') ? 'Please enter maximun 20 charactes' : '' }}
+        </div>
+    </div>
+
+    <div class="">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" formControlName="email">
+        <div class="" *ngIf="registerForm.controls['email'].errors">
+            {{ registerForm.getError('required') ? 'This field is required' : '' }}
+            {{ registerForm.getError('email') ? 'Email syntax error' : '' }}
+        </div>
+    </div>
+
+    <div class="">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" formControlName="password">
+        <div class="" *ngIf="registerForm.controls['email'].errors">
+            {{ registerForm.getError('required') ? 'This field is required' : '' }}
+            {{ registerForm.getError('pattern') ? 'Email syntax error' : '' }}
+        </div>
+    </div>
+
+    <div class="">
+        <label for="confirm_password">Confirm password</label>
+        <input type="password" id="confirm_password" placeholder="Enter your password" formControlName="confirm_password">
+        <div class="" *ngIf="registerForm.controls['confirm_password'].errors">
+            {{ registerForm.getError('required') ? 'This field is required' : '' }}
+            {{ registerForm.getError('confirm_password') ? 'Email syntax error' : '' }}
+        </div>
+    </div>
+
+    <div class="" *ngIf="registerForm.getError('confirm_password')">
+        Password and confirm password field is not same
+    </div>
+
+    <div class="">
+
+        <div class="" *ngIf="saveError">{{ saveError }}</div>
+        <button type="submit" [disabled]="registerForm.invalid">Create account</button>
+    </div>
+</form>
+
+
+<p>
+    You have account? <a href="/login">Click here</a>
+</p>
